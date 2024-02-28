@@ -82,7 +82,8 @@ namespace ShopSite.CW.WebApp.Migrations
                     b.Property<bool>("IsShipped")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("OrderDate")
+                    b.Property<string>("OrderDate")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ShippingAddress")
@@ -133,7 +134,8 @@ namespace ShopSite.CW.WebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<string>("CreatedOn")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")

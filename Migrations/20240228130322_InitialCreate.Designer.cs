@@ -11,7 +11,7 @@ using ShopSite.CW.WebApp.Models;
 namespace ShopSite.CW.WebApp.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20240227232434_InitialCreate")]
+    [Migration("20240228130322_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -85,7 +85,8 @@ namespace ShopSite.CW.WebApp.Migrations
                     b.Property<bool>("IsShipped")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("OrderDate")
+                    b.Property<string>("OrderDate")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("ShippingAddress")
@@ -136,7 +137,8 @@ namespace ShopSite.CW.WebApp.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("CreatedAt")
+                    b.Property<string>("CreatedOn")
+                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Description")

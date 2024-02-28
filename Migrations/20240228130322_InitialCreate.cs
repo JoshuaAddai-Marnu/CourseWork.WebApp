@@ -1,5 +1,4 @@
-﻿using System;
-using Microsoft.EntityFrameworkCore.Migrations;
+﻿using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
@@ -31,7 +30,7 @@ namespace ShopSite.CW.WebApp.Migrations
                 {
                     OrderId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    OrderDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    OrderDate = table.Column<string>(type: "TEXT", nullable: false),
                     CustomerName = table.Column<string>(type: "TEXT", nullable: false),
                     CustomerEmail = table.Column<string>(type: "TEXT", nullable: false),
                     ShippingAddress = table.Column<string>(type: "TEXT", nullable: false),
@@ -53,7 +52,7 @@ namespace ShopSite.CW.WebApp.Migrations
                     Description = table.Column<string>(type: "TEXT", nullable: true),
                     Price = table.Column<decimal>(type: "TEXT", nullable: false),
                     StockQuantity = table.Column<int>(type: "INTEGER", nullable: false),
-                    CreatedAt = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    CreatedOn = table.Column<string>(type: "TEXT", nullable: false),
                     ImageData = table.Column<byte[]>(type: "BLOB", nullable: true),
                     ImageMimeType = table.Column<string>(type: "TEXT", nullable: true)
                 },
