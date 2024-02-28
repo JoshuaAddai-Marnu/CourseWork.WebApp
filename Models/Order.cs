@@ -10,7 +10,7 @@ namespace ShopSite.CW.WebApp.Models
     {
         
          public int OrderId { get; set; } 
-        public DateTime OrderDate { get; set; } 
+        public string OrderDate { get; set; } 
         public string CustomerName { get; set; } 
         public string CustomerEmail { get; set; } 
         public string ShippingAddress { get; set; } 
