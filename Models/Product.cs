@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ShopSite.CW.WebApp.Models
@@ -16,7 +17,9 @@ namespace ShopSite.CW.WebApp.Models
         
 
          // Property for storing product image as binary data
+         [JsonIgnore]
         public byte[]? ImageData { get; set; }
+        [JsonIgnore]
         public string? ImageMimeType { get; set; }
          
          // Navigation property for Suppliers

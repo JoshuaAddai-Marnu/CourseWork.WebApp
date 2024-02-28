@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ShopSite.CW.WebApp.Models
@@ -15,8 +16,10 @@ namespace ShopSite.CW.WebApp.Models
         public decimal TotalPrice { get { return UnitPrice * Quantity; } } // Total price for this order item (calculated based on unit price and quantity)
         
          // Foreign key for Product
+         [JsonIgnore]
         public int ProductId { get; set; }
         // Navigation property for Product
+        [JsonIgnore]
         public Product? Product { get; set; }
     }
 }
