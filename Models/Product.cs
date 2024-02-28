@@ -17,15 +17,15 @@ namespace ShopSite.CW.WebApp.Models
         
 
          // Property for storing product image as binary data
-         [JsonIgnore]
         public byte[]? ImageData { get; set; }
-        [JsonIgnore]
         public string? ImageMimeType { get; set; }
          
          // Navigation property for Suppliers
+         [JsonIgnore]
         public List<Supplier>? Suppliers { get; set; }
         
         // Navigation property for Categories
+        [JsonIgnore]
         public List<Category>? Categories { get; set; }
     }
 }

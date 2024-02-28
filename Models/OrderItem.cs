@@ -16,7 +16,7 @@ namespace ShopSite.CW.WebApp.Models
         public decimal TotalPrice { get { return UnitPrice * Quantity; } } // Total price for this order item (calculated based on unit price and quantity)
         
          // Foreign key for Product
-         [JsonIgnore]
+        [JsonIgnore]
         public int ProductId { get; set; }
         // Navigation property for Product
         [JsonIgnore]
