@@ -283,3 +283,7 @@
 /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Microsoft.Extensions.Identity.Core.dll
 /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Microsoft.Extensions.Identity.Stores.dll
 /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Microsoft.Extensions.Options.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/BouncyCastle.Cryptography.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/MailKit.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/MimeKit.dll
