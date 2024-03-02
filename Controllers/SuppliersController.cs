@@ -11,6 +11,7 @@ namespace ShopSite.CW.WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    //[Authorize(Roles = "Admin")]
     public class SuppliersController : ControllerBase
     {
         private readonly ShopContext _context;
