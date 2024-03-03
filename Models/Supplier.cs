@@ -17,7 +17,6 @@ namespace ShopSite.CW.WebApp.Models
         public string? Address { get; set; } 
 
          // Navigation property for Products
-         [JsonIgnore]
         public List<Product>? Products { get; set; }
     }
 }

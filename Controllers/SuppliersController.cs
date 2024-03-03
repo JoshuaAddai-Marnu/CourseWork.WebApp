@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopSite.CW.WebApp.Models;
@@ -11,7 +7,6 @@ namespace ShopSite.CW.WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize(Roles = "Admin")]
     public class SuppliersController : ControllerBase
     {
         private readonly ShopContext _context;
@@ -45,6 +40,7 @@ namespace ShopSite.CW.WebApp.Controllers
         // PUT: api/Suppliers/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> PutSupplier(int id, Supplier supplier)
         {
             if (id != supplier.SupplierId)
@@ -76,6 +72,7 @@ namespace ShopSite.CW.WebApp.Controllers
         // POST: api/Suppliers
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles ="Admin")]
         public async Task<ActionResult<Supplier>> PostSupplier(Supplier supplier)
         {
             _context.suppliers.Add(supplier);
@@ -86,6 +83,7 @@ namespace ShopSite.CW.WebApp.Controllers
 
         // DELETE: api/Suppliers/5
         [HttpDelete("{id}")]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> DeleteSupplier(int id)
         {
             var supplier = await _context.suppliers.FindAsync(id);

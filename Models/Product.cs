@@ -13,7 +13,7 @@ namespace ShopSite.CW.WebApp.Models
         public string? Description { get; set; } 
         public decimal Price { get; set; } 
         public int StockQuantity { get; set; } 
-        public string CreatedOn { get; set; } 
+        public DateTime CreatedOn { get; set; } 
         
 
          // Property for storing product image as binary data
@@ -21,11 +21,17 @@ namespace ShopSite.CW.WebApp.Models
         public string? ImageMimeType { get; set; }
          
          // Navigation property for Suppliers
-         [JsonIgnore]
-        public List<Supplier>? Suppliers { get; set; }
+        public int? SupplierId  {get; set;}
+        public Supplier? Supplier { get; set; }
         
         // Navigation property for Categories
-        [JsonIgnore]
-        public List<Category>? Categories { get; set; }
+        public int? CategoryId { get; set; }
+
+        public Category? Category { get; set; }
+
+        public Product()
+        {
+            CreatedOn = DateTime.Now;
+        }
     }
 }

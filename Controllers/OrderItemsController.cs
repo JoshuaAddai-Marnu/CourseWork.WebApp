@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopSite.CW.WebApp.Models;
@@ -18,13 +13,6 @@ namespace ShopSite.CW.WebApp.Controllers
         public OrderItemsController(ShopContext context)
         {
             _context = context;
-        }
-
-        // GET: api/OrderItems
-        [HttpGet]
-        public async Task<ActionResult<IEnumerable<OrderItem>>> GetOrderItems()
-        {
-            return await _context.OrderItems.ToListAsync();
         }
 
         // GET: api/OrderItems/5
@@ -72,16 +60,6 @@ namespace ShopSite.CW.WebApp.Controllers
             return NoContent();
         }
 
-        // POST: api/OrderItems
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
-        [HttpPost]
-        public async Task<ActionResult<OrderItem>> PostOrderItem(OrderItem orderItem)
-        {
-            _context.OrderItems.Add(orderItem);
-            await _context.SaveChangesAsync();
-
-            return CreatedAtAction("GetOrderItem", new { id = orderItem.OrderItemId }, orderItem);
-        }
 
         // DELETE: api/OrderItems/5
         [HttpDelete("{id}")]

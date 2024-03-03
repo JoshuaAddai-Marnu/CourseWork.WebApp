@@ -1,8 +1,4 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopSite.CW.WebApp.Models;
@@ -11,7 +7,6 @@ namespace ShopSite.CW.WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
     public class ProductsController : ControllerBase
     {
         private readonly ShopContext _context;
@@ -25,14 +20,14 @@ namespace ShopSite.CW.WebApp.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> Getproducts()
         {
-            return await _context.products.ToListAsync();
+            return await _context.products.Include(p => p.Supplier).Include(p => p.Category).ToListAsync();
         }
 
         // GET: api/Products/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Product>> GetProduct(int id)
         {
-            var product = await _context.products.FindAsync(id);
+            var product = await _context.products.Include(p => p.Supplier).Include(p => p.Category).FirstOrDefaultAsync(p => p.ProductId == id);
 
             if (product == null)
             {
@@ -45,6 +40,7 @@ namespace ShopSite.CW.WebApp.Controllers
         // PUT: api/Products/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> PutProduct(int id, Product product)
         {
             if (id != product.ProductId)
@@ -76,6 +72,7 @@ namespace ShopSite.CW.WebApp.Controllers
         // POST: api/Products
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles ="Admin")]
         public async Task<ActionResult<Product>> PostProduct(Product product)
         {
             _context.products.Add(product);
@@ -86,6 +83,7 @@ namespace ShopSite.CW.WebApp.Controllers
 
         // DELETE: api/Products/5
         [HttpDelete("{id}")]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> DeleteProduct(int id)
         {
             var product = await _context.products.FindAsync(id);

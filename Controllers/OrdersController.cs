@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ShopSite.CW.WebApp.Models;
@@ -11,7 +8,7 @@ namespace ShopSite.CW.WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class OrdersController : ControllerBase
     {
         private readonly ShopContext _context;
@@ -23,16 +20,24 @@ namespace ShopSite.CW.WebApp.Controllers
 
         // GET: api/Orders
         [HttpGet]
+        [Authorize(Roles ="Admin")]
         public async Task<ActionResult<IEnumerable<Order>>> GetOrders()
         {
-            return await _context.Orders.ToListAsync();
+            return await _context.Orders.Include(o => o.Customer)
+                                .Include(o=> o.OrderItems)
+                                .ThenInclude(oi => oi.Product).ToListAsync();
         }
 
         // GET: api/Orders/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Order>> GetOrder(int id)
         {
-            var order = await _context.Orders.FindAsync(id);
+            // Retrieve user ID from JWT claims
+            var order = await _context.Orders
+                                .Include(o => o.Customer)
+                                .Include(o=> o.OrderItems)
+                                .ThenInclude(oi => oi.Product)
+                                .FirstOrDefaultAsync(o => o.OrderId == id);
 
             if (order == null)
             {
@@ -76,6 +81,7 @@ namespace ShopSite.CW.WebApp.Controllers
         // POST: api/Orders
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
+        [Authorize(Roles ="Customer")]
         public async Task<ActionResult<Order>> PostOrder(Order order)
         {
             _context.Orders.Add(order);
@@ -86,6 +92,7 @@ namespace ShopSite.CW.WebApp.Controllers
 
         // DELETE: api/Orders/5
         [HttpDelete("{id}")]
+        [Authorize(Roles ="Admin")]
         public async Task<IActionResult> DeleteOrder(int id)
         {
             var order = await _context.Orders.FindAsync(id);

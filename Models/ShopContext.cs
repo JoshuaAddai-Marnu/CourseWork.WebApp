@@ -19,6 +19,6 @@ namespace ShopSite.CW.WebApp.Models
         public DbSet<OrderItem> OrderItems { get; set; }
         public DbSet<Product> products{get; set;}
         public DbSet<Supplier> suppliers{get; set;}
-        
+        public object ProductSuppliers { get; internal set; }
     }
 }
