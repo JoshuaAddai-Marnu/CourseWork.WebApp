@@ -287,3 +287,12 @@
 /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/MailKit.dll
 /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
 /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/MimeKit.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Serilog.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Serilog.AspNetCore.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Serilog.Extensions.Hosting.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Serilog.Extensions.Logging.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Serilog.Formatting.Compact.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Serilog.Settings.Configuration.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Serilog.Sinks.Console.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Serilog.Sinks.Debug.dll
+/Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp/bin/Debug/net8.0/Serilog.Sinks.File.dll
