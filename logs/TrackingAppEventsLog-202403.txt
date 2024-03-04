@@ -519,3 +519,71 @@ RETURNING 1;
 2024-03-03 22:57:57.203 +00:00 [INF] HTTP POST /api/Roles/assign-role-to-user responded 200 in 69.5901 ms
 2024-03-03 22:57:57.203 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Roles/assign-role-to-user - 200 null text/plain; charset=utf-8 70.4827ms
 2024-03-03 22:58:30.931 +00:00 [INF] Application is shutting down...
+2024-03-04 11:43:49.774 +00:00 [INF] User profile is available. Using '/Users/joshuaaddai-marnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-04 11:43:49.844 +00:00 [INF] Now listening on: http://localhost:5186
+2024-03-04 11:43:49.845 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-04 11:43:49.845 +00:00 [INF] Hosting environment: Development
+2024-03-04 11:43:49.845 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
+2024-03-04 11:46:49.821 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5186/api/Orders - application/json 232
+2024-03-04 11:46:49.852 +00:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Customer)
+2024-03-04 11:46:49.853 +00:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-03-04 11:46:49.857 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Orders - 401 0 null 35.949ms
+2024-03-04 11:46:59.144 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5186/api/Orders - application/json 232
+2024-03-04 11:46:59.199 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Customer)
+2024-03-04 11:46:59.200 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2024-03-04 11:46:59.200 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Orders - 403 0 null 56.3704ms
+2024-03-04 11:48:34.952 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Categories - null null
+2024-03-04 11:48:34.973 +00:00 [WRN] Failed to determine the https port for redirect.
+2024-03-04 11:48:34.975 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategories (ShopSite.CW.WebApp)'
+2024-03-04 11:48:34.987 +00:00 [INF] Route matched with {action = "GetCategories", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ShopSite.CW.WebApp.Models.Category]]] GetCategories() on controller ShopSite.CW.WebApp.Controllers.CategoriesController (ShopSite.CW.WebApp).
+2024-03-04 11:48:35.529 +00:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."CategoryId", "c"."Description", "c"."Name"
+FROM "Categories" AS "c"
+2024-03-04 11:48:35.560 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ShopSite.CW.WebApp.Models.Category, ShopSite.CW.WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-04 11:48:35.574 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategories (ShopSite.CW.WebApp) in 585.4124ms
+2024-03-04 11:48:35.574 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategories (ShopSite.CW.WebApp)'
+2024-03-04 11:48:35.575 +00:00 [INF] HTTP GET /api/Categories responded 200 in 601.8225 ms
+2024-03-04 11:48:35.578 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Categories - 200 null application/json; charset=utf-8 626.272ms
+2024-03-04 11:48:52.416 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Categories/7 - null null
+2024-03-04 11:48:52.420 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategory (ShopSite.CW.WebApp)'
+2024-03-04 11:48:52.435 +00:00 [INF] Route matched with {action = "GetCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ShopSite.CW.WebApp.Models.Category]] GetCategory(Int32) on controller ShopSite.CW.WebApp.Controllers.CategoriesController (ShopSite.CW.WebApp).
+2024-03-04 11:48:52.490 +00:00 [INF] Executed DbCommand (2ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."CategoryId", "c"."Description", "c"."Name"
+FROM "Categories" AS "c"
+WHERE "c"."CategoryId" = @__p_0
+LIMIT 1
+2024-03-04 11:48:52.491 +00:00 [INF] Executing ObjectResult, writing value of type 'Microsoft.AspNetCore.Mvc.ProblemDetails'.
+2024-03-04 11:48:52.500 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategory (ShopSite.CW.WebApp) in 64.4814ms
+2024-03-04 11:48:52.500 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategory (ShopSite.CW.WebApp)'
+2024-03-04 11:48:52.500 +00:00 [INF] HTTP GET /api/Categories/7 responded 404 in 80.2996 ms
+2024-03-04 11:48:52.500 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Categories/7 - 404 null application/problem+json; charset=utf-8 84.1078ms
+2024-03-04 11:48:58.755 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Categories/4 - null null
+2024-03-04 11:48:58.757 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategory (ShopSite.CW.WebApp)'
+2024-03-04 11:48:58.757 +00:00 [INF] Route matched with {action = "GetCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ShopSite.CW.WebApp.Models.Category]] GetCategory(Int32) on controller ShopSite.CW.WebApp.Controllers.CategoriesController (ShopSite.CW.WebApp).
+2024-03-04 11:48:58.798 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."CategoryId", "c"."Description", "c"."Name"
+FROM "Categories" AS "c"
+WHERE "c"."CategoryId" = @__p_0
+LIMIT 1
+2024-03-04 11:48:58.798 +00:00 [INF] Executing ObjectResult, writing value of type 'ShopSite.CW.WebApp.Models.Category'.
+2024-03-04 11:48:58.798 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategory (ShopSite.CW.WebApp) in 41.0768ms
+2024-03-04 11:48:58.798 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategory (ShopSite.CW.WebApp)'
+2024-03-04 11:48:58.798 +00:00 [INF] HTTP GET /api/Categories/4 responded 200 in 41.8015 ms
+2024-03-04 11:48:58.799 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Categories/4 - 200 null application/json; charset=utf-8 43.931ms
+2024-03-04 11:49:04.828 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Categories/2 - null null
+2024-03-04 11:49:04.829 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategory (ShopSite.CW.WebApp)'
+2024-03-04 11:49:04.829 +00:00 [INF] Route matched with {action = "GetCategory", controller = "Categories"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[ShopSite.CW.WebApp.Models.Category]] GetCategory(Int32) on controller ShopSite.CW.WebApp.Controllers.CategoriesController (ShopSite.CW.WebApp).
+2024-03-04 11:49:04.833 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__p_0='?' (DbType = Int32)], CommandType='"Text"', CommandTimeout='30']
+SELECT "c"."CategoryId", "c"."Description", "c"."Name"
+FROM "Categories" AS "c"
+WHERE "c"."CategoryId" = @__p_0
+LIMIT 1
+2024-03-04 11:49:04.834 +00:00 [INF] Executing ObjectResult, writing value of type 'ShopSite.CW.WebApp.Models.Category'.
+2024-03-04 11:49:04.835 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategory (ShopSite.CW.WebApp) in 5.2371ms
+2024-03-04 11:49:04.835 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.CategoriesController.GetCategory (ShopSite.CW.WebApp)'
+2024-03-04 11:49:04.835 +00:00 [INF] HTTP GET /api/Categories/2 responded 200 in 6.0386 ms
+2024-03-04 11:49:04.835 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Categories/2 - 200 null application/json; charset=utf-8 7.1884ms
+2024-03-04 11:49:19.490 +00:00 [INF] Application is shutting down...
