@@ -587,3 +587,33 @@ LIMIT 1
 2024-03-04 11:49:04.835 +00:00 [INF] HTTP GET /api/Categories/2 responded 200 in 6.0386 ms
 2024-03-04 11:49:04.835 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Categories/2 - 200 null application/json; charset=utf-8 7.1884ms
 2024-03-04 11:49:19.490 +00:00 [INF] Application is shutting down...
+2024-03-04 13:35:44.326 +00:00 [INF] User profile is available. Using '/Users/joshuaaddai-marnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-04 13:35:44.396 +00:00 [INF] Now listening on: http://localhost:5186
+2024-03-04 13:35:44.397 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-04 13:35:44.397 +00:00 [INF] Hosting environment: Development
+2024-03-04 13:35:44.397 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
+2024-03-04 13:38:30.806 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5186/api/Order - application/json 232
+2024-03-04 13:38:30.871 +00:00 [WRN] Failed to determine the https port for redirect.
+2024-03-04 13:38:30.872 +00:00 [INF] HTTP POST /api/Order responded 404 in 1.4778 ms
+2024-03-04 13:38:30.875 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Order - 404 0 null 69.1968ms
+2024-03-04 13:38:30.877 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5186/api/Order, Response status code: 404
+2024-03-04 13:38:49.757 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5186/api/Order - application/json 232
+2024-03-04 13:38:49.764 +00:00 [INF] HTTP POST /api/Order responded 404 in 0.1833 ms
+2024-03-04 13:38:49.765 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Order - 404 0 null 7.9446ms
+2024-03-04 13:38:49.765 +00:00 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: POST http://localhost:5186/api/Order, Response status code: 404
+2024-03-04 13:38:52.750 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5186/api/Orders - application/json 232
+2024-03-04 13:38:52.762 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Customer)
+2024-03-04 13:38:52.765 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2024-03-04 13:38:52.766 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Orders - 403 0 null 15.1658ms
+2024-03-04 13:40:54.559 +00:00 [INF] Application is shutting down...
+2024-03-04 17:01:59.384 +00:00 [INF] User profile is available. Using '/Users/joshuaaddai-marnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-04 17:01:59.452 +00:00 [INF] Now listening on: http://localhost:5186
+2024-03-04 17:01:59.453 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-04 17:01:59.454 +00:00 [INF] Hosting environment: Development
+2024-03-04 17:01:59.454 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
+2024-03-04 17:02:21.557 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5186/api/Roles - application/json 9
+2024-03-04 17:02:21.587 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-04 17:02:21.589 +00:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-03-04 17:02:21.592 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Roles - 401 0 null 35.7905ms

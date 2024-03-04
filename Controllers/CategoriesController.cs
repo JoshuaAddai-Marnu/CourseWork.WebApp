@@ -40,7 +40,7 @@ namespace ShopSite.CW.WebApp.Controllers
         // PUT: api/Categories/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PutCategory(int id, Category category)
         {
             if (id != category.CategoryId)
@@ -72,7 +72,7 @@ namespace ShopSite.CW.WebApp.Controllers
         // POST: api/Categories
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<ActionResult<Category>> PostCategory(Category category)
         {
             _context.Categories.Add(category);
@@ -83,7 +83,7 @@ namespace ShopSite.CW.WebApp.Controllers
 
         // DELETE: api/Categories/5
         [HttpDelete("{id}")]
-        [Authorize(Roles ="Admin")]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> DeleteCategory(int id)
         {
             var category = await _context.Categories.FindAsync(id);

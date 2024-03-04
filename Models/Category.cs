@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace ShopSite.CW.WebApp.Models
 {
-    public class Category
-    {
-        
-        public int CategoryId { get; set; } 
-        public string Name { get; set; } 
-        public string? Description { get; set; } 
+  public class Category
+  {
 
-          // Navigation property for Products
-          [JsonIgnore]
-        public List<Product>? Products { get; set; }
-    }
+    public int CategoryId { get; set; }
+    public string Name { get; set; }
+    public string? Description { get; set; }
+
+    // Navigation property for Products
+    [JsonIgnore]
+    public List<Product>? Products { get; set; }
+  }
 }

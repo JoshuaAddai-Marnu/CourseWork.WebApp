@@ -8,22 +8,22 @@ namespace ShopSite.CW.WebApp.Models
 {
     public class Product
     {
-        public int ProductId { get; set; } 
-        public string Name { get; set; } 
-        public string? Description { get; set; } 
-        public decimal Price { get; set; } 
-        public int StockQuantity { get; set; } 
-        public DateTime CreatedOn { get; set; } 
-        
+        public int ProductId { get; set; }
+        public string Name { get; set; }
+        public string? Description { get; set; }
+        public decimal Price { get; set; }
+        public int StockQuantity { get; set; }
+        public DateTime CreatedOn { get; set; }
 
-         // Property for storing product image as binary data
+
+        // Property for storing product image as binary data
         public byte[]? ImageData { get; set; }
         public string? ImageMimeType { get; set; }
-         
-         // Navigation property for Suppliers
-        public int? SupplierId  {get; set;}
+
+        // Navigation property for Suppliers
+        public int? SupplierId { get; set; }
         public Supplier? Supplier { get; set; }
-        
+
         // Navigation property for Categories
         public int? CategoryId { get; set; }
 
