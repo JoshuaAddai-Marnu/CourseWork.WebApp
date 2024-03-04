@@ -52,10 +52,10 @@ builder.Services.AddAuthentication(options =>
             IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"]))
         };
     });
-//Serilog for tracking events
+//log for tracking events
 Log.Logger = new LoggerConfiguration()
 .ReadFrom.Configuration(builder.Configuration).CreateLogger();
-
+//use serilog for logger
 builder.Host.UseSerilog();
 
 var app = builder.Build();
