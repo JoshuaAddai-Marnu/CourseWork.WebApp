@@ -747,3 +747,39 @@ LEFT JOIN "Categories" AS "c" ON "p"."CategoryId" = "c"."CategoryId"
 2024-03-05 03:24:45.896 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.ProductsController.Getproducts (ShopSite.CW.WebApp)'
 2024-03-05 03:24:45.897 +00:00 [INF] HTTP GET /api/Products responded 200 in 517.2234 ms
 2024-03-05 03:24:45.900 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Products - 200 null application/json; charset=utf-8 552.2803ms
+2024-03-05 05:29:56.172 +00:00 [INF] User profile is available. Using '/Users/joshuaaddai-marnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-05 05:29:56.222 +00:00 [INF] Now listening on: http://localhost:5186
+2024-03-05 05:29:56.223 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 05:29:56.223 +00:00 [INF] Hosting environment: Development
+2024-03-05 05:29:56.223 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
+2024-03-05 05:30:37.917 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Products - null null
+2024-03-05 05:30:37.945 +00:00 [WRN] Failed to determine the https port for redirect.
+2024-03-05 05:30:37.947 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.ProductsController.Getproducts (ShopSite.CW.WebApp)'
+2024-03-05 05:30:37.954 +00:00 [INF] Route matched with {action = "Getproducts", controller = "Products"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ShopSite.CW.WebApp.Models.Product]]] Getproducts() on controller ShopSite.CW.WebApp.Controllers.ProductsController (ShopSite.CW.WebApp).
+2024-03-05 05:30:38.386 +00:00 [INF] Executed DbCommand (5ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "p"."ProductId", "p"."CategoryId", "p"."CreatedOn", "p"."Description", "p"."ImageData", "p"."ImageMimeType", "p"."Name", "p"."Price", "p"."StockQuantity", "p"."SupplierId", "s"."SupplierId", "s"."Address", "s"."ContactEmail", "s"."ContactName", "s"."Name", "s"."Phone", "c"."CategoryId", "c"."Description", "c"."Name"
+FROM "products" AS "p"
+LEFT JOIN "suppliers" AS "s" ON "p"."SupplierId" = "s"."SupplierId"
+LEFT JOIN "Categories" AS "c" ON "p"."CategoryId" = "c"."CategoryId"
+2024-03-05 05:30:38.437 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ShopSite.CW.WebApp.Models.Product, ShopSite.CW.WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-05 05:30:38.454 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.ProductsController.Getproducts (ShopSite.CW.WebApp) in 498.6175ms
+2024-03-05 05:30:38.455 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.ProductsController.Getproducts (ShopSite.CW.WebApp)'
+2024-03-05 05:30:38.455 +00:00 [INF] HTTP GET /api/Products responded 200 in 510.2618 ms
+2024-03-05 05:30:38.458 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Products - 200 null application/json; charset=utf-8 541.6743ms
+2024-03-05 05:30:53.165 +00:00 [INF] Application is shutting down...
+2024-03-05 09:31:15.194 +00:00 [INF] User profile is available. Using '/Users/joshuaaddai-marnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-05 09:31:15.261 +00:00 [INF] Now listening on: http://localhost:5186
+2024-03-05 09:31:15.262 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 09:31:15.263 +00:00 [INF] Hosting environment: Development
+2024-03-05 09:31:15.263 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
+2024-03-05 09:31:19.607 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/swagger/index.html - null null
+2024-03-05 09:31:19.672 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/swagger/index.html - 200 null text/html;charset=utf-8 65.7146ms
+2024-03-05 09:31:19.830 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/swagger/v1/swagger.json - null null
+2024-03-05 09:31:19.891 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 60.6478ms
+2024-03-05 09:34:20.725 +00:00 [INF] Application is shutting down...
+2024-03-05 09:35:32.378 +00:00 [INF] User profile is available. Using '/Users/joshuaaddai-marnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-05 09:35:32.446 +00:00 [INF] Now listening on: http://localhost:5186
+2024-03-05 09:35:32.447 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 09:35:32.447 +00:00 [INF] Hosting environment: Development
+2024-03-05 09:35:32.447 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
+2024-03-05 09:37:15.994 +00:00 [INF] Application is shutting down...
