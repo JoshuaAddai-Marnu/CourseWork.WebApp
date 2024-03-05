@@ -17,7 +17,7 @@ namespace ShopSite.CW.WebApp.Controllers
         }
 
         // GET: api/Products
-        [HttpGet("Products")]
+        [HttpGet]
         public async Task<ActionResult<IEnumerable<Product>>> Getproducts()
         {
             return await _context.products.Include(p => p.Supplier).Include(p => p.Category).ToListAsync();
