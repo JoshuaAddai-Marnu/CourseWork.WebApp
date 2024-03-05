@@ -1,6 +1,0 @@
-@ShopSite.CW.WebApp_HostAddress = http://localhost:5186
-
-GET {{ShopSite.CW.WebApp_HostAddress}}/weatherforecast/
-Accept: application/json
-
-###

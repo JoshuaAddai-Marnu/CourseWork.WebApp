@@ -1,3 +1,0 @@
-﻿<Project>
-  <Import Project="../buildMultiTargeting/ShopSite.CW.WebApp.props" />
-</Project>
