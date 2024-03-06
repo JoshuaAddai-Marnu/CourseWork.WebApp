@@ -1,0 +1,232 @@
+using System;
+This is a simple eCommerce app to sell products of any kind.
+##################################################################
+
+localhost: http://localhost:5186/api/
+Github Repository: https://github.com/JoshuaAddai-Marnu/CourseWork.WebApp
+Azure domain: myshopsitewebcw.azurewebsites.net
+
+##################################################################
+Registered 3 users:
+kobejoshhtc10@gmail.com
+Role:Admin
+Password:@Kobejosh720886
+
+kobejoshhtc100@gmail.com
+Role:Customer
+Password:@Kobejosh720886
+
+kobejoshhtc1000@gmail.com
+Role:Customer
+Password:@Kobejosh720886
+
+Specific User Authorization:
+Admin: DELETE: api / Categories / Id, DELETE: api / Orders / Id, GET: api / Orders, api / Products / Id, POST: api / Products,
+       DELETE: api / Products / Id, ALL: api / Role, PUT: api / Suppliers / Id, POST: api / Suppliers, DELETE: api / Suppliers / Id,
+
+Customer: POST: api / Orders
+###################################################################
+Started by creating Model classes to the model folder.
+public class Category {..}
+public class Order {..}
+public class OrderItem {..}
+public class Product {..}
+public class Supplier {..}
+###############################
+Added my DBContext model class
+public class ShopContext : IdentityDbContext<IdentityUser> {..}
+##############################
+install required packages (terminal):
+dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore.Sqlite
+dotnet add package Microsoft.EntityFrameworkCore.Tools
+##############################
+Registering the context with dependency injection in program.cs 
+builder.Services.AddControllers();
+builder.Services.AddDbContext<ShopContext>(options =>
+    options.UseSqlite(builder.Configuration.GetConnectionString("Connection")));
+
+and then added
+app.MapControllers();
+Added my database connection string in appsettings.json
+"ConnectionStrings": { "Connection": "Data Source=shop.db;"}
+
+############################
+
+Adding migration by running this command in the terminal and also update the database
+
+But before that, I installed some tools
+dotnet new tool- manifest
+dotnet tool install --local dotnet-ef
+dotnet ef migrations add InitialCreate
+dotnet ef database update
+
+To genrate the controllers, I run these commands in the terminal:
+dotnet tool install --local dotnet-aspnet-codegenerator
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+
+dotnet aspnet-codegenerator controller -name ProductsController -async 
+-api -m Product -dc ShopContext -outDir Controllers
+[Route("api/[controller]")]
+[ApiController]
+public class ProductsController : ControllerBase {...}
+
+The above command is used to generate ProductsContoller for product model.
+Did same for the rest of the entity models ie Category, Order, OrderItem,
+and Supplier.
+#############################
+Now added identity support in our application to create user accounts, sign up, sign in 
+and sign out. And also created an email service on sign up.
+
+Changed this line in ShopContext.cs file
+public class ShopContext : DbContext
+to
+public class ShopContext : IdentityDbContext<IdentityUser>
+
+In program.cs file, I added another service dependency injection:
+builder.Services.AddIdentity<IdentityUser, IdentityRole>()
+    .AddEntityFrameworkStores<ShopContext>().AddDefaultTokenProviders();
+
+***
+I updated the database to have the IdentityUser and IdentityRole
+by using thse commands in the terminal.
+
+dotnet ef migrations add IdentityAdded
+dotnet ef database update
+
+***
+Now to get the program to have email service, I used nuget galler extension
+to install this dependancy: Mailkit(by Jeffrey Stedfast)
+
+Now I added the registration with email verification  and sign in functionalities to my app by creating a class called AuthModel
+in the model folder.
+ public class AuthModel {..}
+
+******
+Created a folder named Services and created EmailService.cs and EmailSettings.cs
+files.
+public class EmailService {...}
+public class EmailSettings {...}
+
+After I registered  our email service in our program.cs 
+file:
+builder.Services.Configure<EmailSettings>(builder.Configuration.GetSection("EmailSettings"));
+builder.Services.AddScoped<EmailService>();
+
+Need to add this in the appsettings.json file after the connection string:
+"EmailSettings": {
+    "SmtpServer": "smtp.gmail.com",
+    "SmtpPort": 587,
+    "SmtpUsername": "kobejoshhtc10@gmail.com",
+    "SmtpPassword": "rzps kqmb ceex ffxm"
+  }
+*******
+To add JWT token and for that we need to install this dependency: 
+Microsoft.AspNetCore.Authentication.JwtBearer
+
+In Program.cs, I added this
+builder.Services.AddScoped<RolesController>();
+
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+})
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {...};
+    });
+
+In appsettings.json file, add this:
+"Jwt": {
+    "Key": "ThisIsAVeryLongRandomStringUsedAsJWTKey",
+    "Issuer": "http://localhost:5186",
+    "ExpireHours": 168
+  }
+*******
+Created an account controller
+[Route("api/[controller]")]
+[ApiController]
+public class AccountController : ControllerBase {...}
+
+After I created RolesController.
+[Authorize(Roles = "Admin")]
+[Route("api/[controller]")]
+[ApiController]
+public class RolesController : ControllerBase {...}
+
+then I added AssignRoleModel and UpdateRoleModel classes to the model folder.
+public class AssignRoleModel {...}
+public class UpdateRoleModel {...}
+
+##################################
+Implemented logging for tracking application events.
+
+In program.cs before var app= Builder.Build
+I Implemented this:
+//log for tracking events
+Log.Logger = new LoggerConfiguration()
+.ReadFrom.Configuration(builder.Configuration).CreateLogger();
+//use serilog for logger
+builder.Host.UseSerilog();
+and
+app.UseSerilogRequestLogging();
+
+In appsettings.json, I added
+ "Serilog": {
+    "Using": [
+      "Serilog.Sinks.Console",
+      "Serilog.Sinks.File"
+    ],
+    "WriteTo": [
+      {
+        "Name": "Console"
+      },
+      {
+        "Name": "File",
+        "Args": {
+            "path": "logs/TrackingAppEventsLog-.txt",
+          "rollingInterval": "Month"
+        }
+    }
+    ]
+  }
+
+##################################
+Cloud deployment on Microsoft Azure.
+
+Next, I create a production build for my application, which can then deploy.
+To create the production build, run:
+dotnet build --configuration Release
+
+This production build was stored in the bin/Release folder, after which I deployed 
+the application to the free-tier (F1) of Azure’s App Service by running the following command:
+az webapp up --sku F1 --name "MyShopSiteWebCW" --os-type linux
+
+You can also do this on Microsoft Azure's webdite OR
+through VisualStudio by intalling Microsoft Azure App Services extension.
+
+I deployed my app after.
+****
+Configuring the SQLite Database:
+Logged into my Azure portal and in the search-bar, typed “App Services”. 
+Navigated to the App Services page and clicked on my newly deployed service.
+Select “Configuration” and click on “New connection string”. Fill in the details like so and save:
+Name: Connection.
+Value: Data Source = D:\home\site\wwwroot\App_Data\Shop.db
+Type: Custom
+*********
+Finally, since we cannot perform a database migration here, we have to use the Kudu tool to 
+upload our database via FTP. (Can also use apps like cyberduck and File Zilla to do upload database.)
+Go to: https://MyShopSiteWebCW.scm.azurewebsites.net
+
+Opened Debug console and Selected PowerShell
+
+Created and navigated into the App_Data directory by running the following commands in the console respectively:
+mkdir site/wwwroot/App_Data
+cd site/wwwroot/App_Data
+
+dragged and dropped my SQLite database on it and it uploaded my database.
+...............................................................................................................

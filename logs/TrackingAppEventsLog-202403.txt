@@ -783,3 +783,189 @@ LEFT JOIN "Categories" AS "c" ON "p"."CategoryId" = "c"."CategoryId"
 2024-03-05 09:35:32.447 +00:00 [INF] Hosting environment: Development
 2024-03-05 09:35:32.447 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
 2024-03-05 09:37:15.994 +00:00 [INF] Application is shutting down...
+2024-03-05 12:38:04.212 +00:00 [INF] User profile is available. Using '/Users/joshuaaddai-marnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-05 12:38:04.282 +00:00 [INF] Now listening on: http://localhost:5186
+2024-03-05 12:38:04.283 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-05 12:38:04.284 +00:00 [INF] Hosting environment: Development
+2024-03-05 12:38:04.284 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
+2024-03-05 12:38:10.873 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/swagger/index.html - null null
+2024-03-05 12:38:10.945 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/swagger/index.html - 200 null text/html;charset=utf-8 73.8965ms
+2024-03-05 12:38:11.049 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/swagger/v1/swagger.json - null null
+2024-03-05 12:38:11.107 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 57.9304ms
+2024-03-05 12:40:25.728 +00:00 [INF] Application is shutting down...
+2024-03-06 03:24:11.653 +00:00 [INF] User profile is available. Using '/Users/joshuaaddai-marnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-06 03:24:11.722 +00:00 [INF] Now listening on: http://localhost:5186
+2024-03-06 03:24:11.723 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-06 03:24:11.723 +00:00 [INF] Hosting environment: Development
+2024-03-06 03:24:11.723 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
+2024-03-06 03:24:17.785 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/swagger/index.html - null null
+2024-03-06 03:24:17.862 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/swagger/index.html - 200 null text/html;charset=utf-8 77.7474ms
+2024-03-06 03:24:17.970 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/swagger/v1/swagger.json - null null
+2024-03-06 03:24:18.029 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/swagger/v1/swagger.json - 200 null application/json;charset=utf-8 58.363ms
+2024-03-06 03:25:59.127 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5186/api/Account/login - application/json 74
+2024-03-06 03:25:59.141 +00:00 [WRN] Failed to determine the https port for redirect.
+2024-03-06 03:25:59.146 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.AccountController.Login (ShopSite.CW.WebApp)'
+2024-03-06 03:25:59.158 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ShopSite.CW.WebApp.Models.AuthModel) on controller ShopSite.CW.WebApp.Controllers.AccountController (ShopSite.CW.WebApp).
+2024-03-06 03:25:59.745 +00:00 [INF] Executed DbCommand (7ms) [Parameters=[@__normalizedUserName_0='?' (Size = 24)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-03-06 03:25:59.862 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-03-06 03:25:59.872 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2024-03-06 03:25:59.875 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 8)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2024-03-06 03:25:59.882 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."ClaimType", "a"."ClaimValue"
+FROM "AspNetRoleClaims" AS "a"
+WHERE "a"."RoleId" = @__role_Id_0
+2024-03-06 03:25:59.886 +00:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-03-06 03:25:59.890 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 24)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-03-06 03:25:59.892 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2024-03-06 03:25:59.909 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-06 03:25:59.913 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.AccountController.Login (ShopSite.CW.WebApp) in 753.2707ms
+2024-03-06 03:25:59.913 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.AccountController.Login (ShopSite.CW.WebApp)'
+2024-03-06 03:25:59.914 +00:00 [INF] HTTP POST /api/Account/login responded 200 in 775.6670 ms
+2024-03-06 03:25:59.917 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Account/login - 200 null application/json; charset=utf-8 789.7152ms
+2024-03-06 03:26:34.137 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Orders - null null
+2024-03-06 03:26:34.154 +00:00 [INF] Authorization failed. These requirements were not met:
+DenyAnonymousAuthorizationRequirement: Requires an authenticated user.
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-06 03:26:34.156 +00:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-03-06 03:26:34.156 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Orders - 401 0 null 19.7992ms
+2024-03-06 03:28:02.823 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Roles/assign-role-to-user - null null
+2024-03-06 03:28:02.827 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-06 03:28:02.829 +00:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-03-06 03:28:02.829 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Roles/assign-role-to-user - 401 0 null 6.5275ms
+2024-03-06 03:28:31.342 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Roles - null null
+2024-03-06 03:28:31.346 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-06 03:28:31.347 +00:00 [INF] AuthenticationScheme: Bearer was challenged.
+2024-03-06 03:28:31.347 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Roles - 401 0 null 5.0412ms
+2024-03-06 03:28:47.801 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Roles - null null
+2024-03-06 03:28:47.835 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-06 03:28:47.835 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2024-03-06 03:28:47.836 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Roles - 403 0 null 34.433ms
+2024-03-06 03:29:30.278 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Roles - null null
+2024-03-06 03:29:30.281 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-06 03:29:30.281 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2024-03-06 03:29:30.281 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Roles - 403 0 null 3.6424ms
+2024-03-06 03:29:32.137 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Roles - null null
+2024-03-06 03:29:32.137 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-06 03:29:32.138 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2024-03-06 03:29:32.139 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Roles - 403 0 null 2.0497ms
+2024-03-06 03:29:33.245 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Roles - null null
+2024-03-06 03:29:33.247 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-06 03:29:33.247 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2024-03-06 03:29:33.247 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Roles - 403 0 null 2.1234ms
+2024-03-06 03:30:01.437 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Roles - null null
+2024-03-06 03:30:01.438 +00:00 [INF] Authorization failed. These requirements were not met:
+RolesAuthorizationRequirement:User.IsInRole must be true for one of the following roles: (Admin)
+2024-03-06 03:30:01.438 +00:00 [INF] AuthenticationScheme: Bearer was forbidden.
+2024-03-06 03:30:01.439 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Roles - 403 0 null 2.067ms
+2024-03-06 03:30:22.918 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5186/api/Account/logout - null 0
+2024-03-06 03:30:22.923 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.AccountController.Logout (ShopSite.CW.WebApp)'
+2024-03-06 03:30:22.939 +00:00 [INF] Route matched with {action = "Logout", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Logout() on controller ShopSite.CW.WebApp.Controllers.AccountController (ShopSite.CW.WebApp).
+2024-03-06 03:30:22.942 +00:00 [INF] AuthenticationScheme: Identity.Application signed out.
+2024-03-06 03:30:22.943 +00:00 [INF] AuthenticationScheme: Identity.External signed out.
+2024-03-06 03:30:22.943 +00:00 [INF] AuthenticationScheme: Identity.TwoFactorUserId signed out.
+2024-03-06 03:30:22.944 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.String'.
+2024-03-06 03:30:22.944 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.AccountController.Logout (ShopSite.CW.WebApp) in 4.9732ms
+2024-03-06 03:30:22.944 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.AccountController.Logout (ShopSite.CW.WebApp)'
+2024-03-06 03:30:22.944 +00:00 [INF] HTTP POST /api/Account/logout responded 200 in 21.2693 ms
+2024-03-06 03:30:22.944 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Account/logout - 200 null text/plain; charset=utf-8 25.9832ms
+2024-03-06 03:30:37.923 +00:00 [INF] Request starting HTTP/1.1 POST http://localhost:5186/api/Account/login - application/json 73
+2024-03-06 03:30:37.926 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.AccountController.Login (ShopSite.CW.WebApp)'
+2024-03-06 03:30:37.926 +00:00 [INF] Route matched with {action = "Login", controller = "Account"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(ShopSite.CW.WebApp.Models.AuthModel) on controller ShopSite.CW.WebApp.Controllers.AccountController (ShopSite.CW.WebApp).
+2024-03-06 03:30:37.982 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedUserName_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedUserName" = @__normalizedUserName_0
+LIMIT 1
+2024-03-06 03:30:38.051 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__user_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ClaimType", "a"."ClaimValue", "a"."UserId"
+FROM "AspNetUserClaims" AS "a"
+WHERE "a"."UserId" = @__user_Id_0
+2024-03-06 03:30:38.051 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2024-03-06 03:30:38.052 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedName_0='?' (Size = 5)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+WHERE "a"."NormalizedName" = @__normalizedName_0
+LIMIT 1
+2024-03-06 03:30:38.052 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__role_Id_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."ClaimType", "a"."ClaimValue"
+FROM "AspNetRoleClaims" AS "a"
+WHERE "a"."RoleId" = @__role_Id_0
+2024-03-06 03:30:38.053 +00:00 [INF] AuthenticationScheme: Identity.Application signed in.
+2024-03-06 03:30:38.053 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__normalizedEmail_0='?' (Size = 23)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName"
+FROM "AspNetUsers" AS "a"
+WHERE "a"."NormalizedEmail" = @__normalizedEmail_0
+LIMIT 2
+2024-03-06 03:30:38.053 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[@__userId_0='?' (Size = 36)], CommandType='"Text"', CommandTimeout='30']
+SELECT "a0"."Name"
+FROM "AspNetUserRoles" AS "a"
+INNER JOIN "AspNetRoles" AS "a0" ON "a"."RoleId" = "a0"."Id"
+WHERE "a"."UserId" = @__userId_0
+2024-03-06 03:30:38.054 +00:00 [INF] Executing OkObjectResult, writing value of type '<>f__AnonymousType1`1[[System.String, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]'.
+2024-03-06 03:30:38.054 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.AccountController.Login (ShopSite.CW.WebApp) in 127.0469ms
+2024-03-06 03:30:38.054 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.AccountController.Login (ShopSite.CW.WebApp)'
+2024-03-06 03:30:38.054 +00:00 [INF] HTTP POST /api/Account/login responded 200 in 128.0725 ms
+2024-03-06 03:30:38.054 +00:00 [INF] Request finished HTTP/1.1 POST http://localhost:5186/api/Account/login - 200 null application/json; charset=utf-8 130.8202ms
+2024-03-06 03:31:04.086 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Roles - null null
+2024-03-06 03:31:04.089 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.RolesController.GetRoles (ShopSite.CW.WebApp)'
+2024-03-06 03:31:04.092 +00:00 [INF] Route matched with {action = "GetRoles", controller = "Roles"}. Executing controller action with signature Microsoft.AspNetCore.Mvc.IActionResult GetRoles() on controller ShopSite.CW.WebApp.Controllers.RolesController (ShopSite.CW.WebApp).
+2024-03-06 03:31:04.114 +00:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "a"."Id", "a"."ConcurrencyStamp", "a"."Name", "a"."NormalizedName"
+FROM "AspNetRoles" AS "a"
+2024-03-06 03:31:04.116 +00:00 [INF] Executing OkObjectResult, writing value of type 'System.Collections.Generic.List`1[[Microsoft.AspNetCore.Identity.IdentityRole, Microsoft.Extensions.Identity.Stores, Version=8.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60]]'.
+2024-03-06 03:31:04.117 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.RolesController.GetRoles (ShopSite.CW.WebApp) in 24.8388ms
+2024-03-06 03:31:04.117 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.RolesController.GetRoles (ShopSite.CW.WebApp)'
+2024-03-06 03:31:04.117 +00:00 [INF] HTTP GET /api/Roles responded 200 in 27.7141 ms
+2024-03-06 03:31:04.117 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Roles - 200 null application/json; charset=utf-8 30.8635ms
+2024-03-06 03:46:37.583 +00:00 [INF] Request starting HTTP/1.1 GET http://localhost:5186/api/Orders - null null
+2024-03-06 03:46:37.585 +00:00 [INF] Executing endpoint 'ShopSite.CW.WebApp.Controllers.OrdersController.GetOrders (ShopSite.CW.WebApp)'
+2024-03-06 03:46:37.591 +00:00 [INF] Route matched with {action = "GetOrders", controller = "Orders"}. Executing controller action with signature System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.ActionResult`1[System.Collections.Generic.IEnumerable`1[ShopSite.CW.WebApp.Models.Order]]] GetOrders() on controller ShopSite.CW.WebApp.Controllers.OrdersController (ShopSite.CW.WebApp).
+2024-03-06 03:46:37.632 +00:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT "o"."OrderId", "o"."CustomerId", "o"."CustomerName", "o"."IsShipped", "o"."OrderDate", "o"."ShippingAddress", "o"."TotalAmount", "a"."Id", "a"."AccessFailedCount", "a"."ConcurrencyStamp", "a"."Email", "a"."EmailConfirmed", "a"."LockoutEnabled", "a"."LockoutEnd", "a"."NormalizedEmail", "a"."NormalizedUserName", "a"."PasswordHash", "a"."PhoneNumber", "a"."PhoneNumberConfirmed", "a"."SecurityStamp", "a"."TwoFactorEnabled", "a"."UserName", "t"."OrderItemId", "t"."OrderId", "t"."ProductId", "t"."Quantity", "t"."ProductId0", "t"."CategoryId", "t"."CreatedOn", "t"."Description", "t"."ImageData", "t"."ImageMimeType", "t"."Name", "t"."Price", "t"."StockQuantity", "t"."SupplierId"
+FROM "Orders" AS "o"
+INNER JOIN "AspNetUsers" AS "a" ON "o"."CustomerId" = "a"."Id"
+LEFT JOIN (
+    SELECT "o0"."OrderItemId", "o0"."OrderId", "o0"."ProductId", "o0"."Quantity", "p"."ProductId" AS "ProductId0", "p"."CategoryId", "p"."CreatedOn", "p"."Description", "p"."ImageData", "p"."ImageMimeType", "p"."Name", "p"."Price", "p"."StockQuantity", "p"."SupplierId"
+    FROM "OrderItems" AS "o0"
+    INNER JOIN "products" AS "p" ON "o0"."ProductId" = "p"."ProductId"
+) AS "t" ON "o"."OrderId" = "t"."OrderId"
+ORDER BY "o"."OrderId", "a"."Id", "t"."OrderItemId"
+2024-03-06 03:46:37.672 +00:00 [INF] Executing ObjectResult, writing value of type 'System.Collections.Generic.List`1[[ShopSite.CW.WebApp.Models.Order, ShopSite.CW.WebApp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]'.
+2024-03-06 03:46:37.687 +00:00 [INF] Executed action ShopSite.CW.WebApp.Controllers.OrdersController.GetOrders (ShopSite.CW.WebApp) in 95.7772ms
+2024-03-06 03:46:37.688 +00:00 [INF] Executed endpoint 'ShopSite.CW.WebApp.Controllers.OrdersController.GetOrders (ShopSite.CW.WebApp)'
+2024-03-06 03:46:37.688 +00:00 [INF] HTTP GET /api/Orders responded 200 in 102.6036 ms
+2024-03-06 03:46:37.688 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Orders - 200 null application/json; charset=utf-8 105.114ms
+2024-03-06 03:59:29.986 +00:00 [INF] Application is shutting down...
