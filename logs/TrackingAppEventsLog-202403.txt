@@ -969,3 +969,9 @@ ORDER BY "o"."OrderId", "a"."Id", "t"."OrderItemId"
 2024-03-06 03:46:37.688 +00:00 [INF] HTTP GET /api/Orders responded 200 in 102.6036 ms
 2024-03-06 03:46:37.688 +00:00 [INF] Request finished HTTP/1.1 GET http://localhost:5186/api/Orders - 200 null application/json; charset=utf-8 105.114ms
 2024-03-06 03:59:29.986 +00:00 [INF] Application is shutting down...
+2024-03-06 04:26:45.080 +00:00 [INF] User profile is available. Using '/Users/joshuaaddai-marnu/.aspnet/DataProtection-Keys' as key repository; keys will not be encrypted at rest.
+2024-03-06 04:26:45.149 +00:00 [INF] Now listening on: http://localhost:5186
+2024-03-06 04:26:45.150 +00:00 [INF] Application started. Press Ctrl+C to shut down.
+2024-03-06 04:26:45.150 +00:00 [INF] Hosting environment: Development
+2024-03-06 04:26:45.150 +00:00 [INF] Content root path: /Users/joshuaaddai-marnu/Desktop/ShopSite.CW.WebApp
+2024-03-06 04:26:51.073 +00:00 [INF] Application is shutting down...
