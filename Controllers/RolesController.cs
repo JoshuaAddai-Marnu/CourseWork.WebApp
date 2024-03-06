@@ -6,42 +6,42 @@ using Microsoft.AspNetCore.Authorization;
 
 namespace ShopSite.CW.WebApp.Controllers
 {
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles ="Admin")] //Access to Admin only
     [Route("api/[controller]")]
     [ApiController]
-    public class RolesController : ControllerBase
+    public class RolesController : ControllerBase // Inherits from ControllerBase
     {
-        private readonly RoleManager<IdentityRole> _roleManager;
-        private readonly UserManager<IdentityUser> _userManager;
+        private readonly RoleManager<IdentityRole> _roleManager; //Manages role-related operations
+        private readonly UserManager<IdentityUser> _userManager;  //Manaes uder-relayed operations
 
         public RolesController(RoleManager<IdentityRole> roleManager, UserManager<IdentityUser> userManager)
         {
-            _roleManager = roleManager;
-            _userManager = userManager;
+            _roleManager = roleManager; // Initialize RoleManager
+            _userManager = userManager; // Initialize UserManager
         }
 
         [HttpGet]
         public IActionResult GetRoles()
         {
-            var roles = _roleManager.Roles.ToList();
-            return Ok(roles);
+            var roles = _roleManager.Roles.ToList(); // Retrieve all roles
+            return Ok(roles); // Return roles
         }
 
         [HttpGet("{roleId}")]
         public async Task<IActionResult> GetRole(string roleId)
         {
-            var role = await _roleManager.FindByIdAsync(roleId);
+            var role = await _roleManager.FindByIdAsync(roleId); // Find role by ID
 
             if (role == null)
             {
-                return NotFound("Role not found.");
+                return NotFound("Role not found."); // Return message if role not found
             }
 
             return Ok(role);
         }
 
         [HttpPost]
-        public async Task<IActionResult> CreateRole([FromBody] string roleName)
+        public async Task<IActionResult> CreateRole([FromBody] string roleName) 
         {
             var role = new IdentityRole(roleName);
             var result = await _roleManager.CreateAsync(role);

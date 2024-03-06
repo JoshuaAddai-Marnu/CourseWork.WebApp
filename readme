@@ -19,7 +19,7 @@ kobejoshhtc1000@gmail.com
 Role:Customer
 Password:@Kobejosh720886
 
-Specific User Authorization:
+Specific User Authorizations:
 Admin: DELETE: api / Categories / Id, DELETE: api / Orders / Id, GET: api / Orders, api / Products / Id, POST: api / Products,
        DELETE: api / Products / Id, ALL: api / Role, PUT: api / Suppliers / Id, POST: api / Suppliers, DELETE: api / Suppliers / Id,
 
@@ -27,19 +27,39 @@ Customer: POST: api / Orders
 ###################################################################
 Started by creating Model classes to the model folder.
 public class Category {..}
+//Represents a category of products.
+//Contains properties like CategoryId, Name, and Description.
+//Has a navigation property Products representing the list of products in this category.
+
 public class Order {..}
+//Represents a customer order.
+//Contains properties like OrderId, OrderDate, CustomerId, Customer, CustomerName, ShippingAddress, TotalAmount, and IsShipped.
+//Includes a navigation property OrderItems representing the list of items in this order.
 public class OrderItem {..}
+//Represents an item within an order.
+//Contains properties like OrderItemId, Quantity, ProductId, and Product.
+//Establishes a relationship with the Product entity through the ProductId foreign key and the Product navigation property.
+
 public class Product {..}
+//Represents a product available for purchase.
+//Contains properties like ProductId, Name, Description, Price, StockQuantity, and CreatedOn.
+//Includes navigation properties for the Supplier and Category entities to which this product belongs.
 public class Supplier {..}
+//Represents a supplier of products.
+//Contains properties like SupplierId, Name, ContactName, ContactEmail, Phone, and Address.
+//Includes a navigation property Products representing the list of products supplied by this supplier.
+
 ###############################
 Added my DBContext model class
 public class ShopContext : IdentityDbContext<IdentityUser> {..}
 ##############################
 install required packages (terminal):
-dotnet add package Microsoft.EntityFrameworkCore
+dotnet add package Microsoft.EntityFrameworkCore //framework that enables developers to work with relational 
+//databases using .NET objects.
 dotnet add package Microsoft.EntityFrameworkCore.Sqlite
-dotnet add package Microsoft.EntityFrameworkCore.Tools
-##############################
+dotnet add package Microsoft.EntityFrameworkCore.Tools //used for managing database migrations, scaffolding 
+//database contexts, and executing EF Core commands.
+#############################################################################
 Registering the context with dependency injection in program.cs 
 builder.Services.AddControllers();
 builder.Services.AddDbContext<ShopContext>(options =>
@@ -50,20 +70,32 @@ app.MapControllers();
 Added my database connection string in appsettings.json
 "ConnectionStrings": { "Connection": "Data Source=shop.db;"}
 
-############################
+#############################################################################
 
 Adding migration by running this command in the terminal and also update the database
 
 But before that, I installed some tools
-dotnet new tool- manifest
-dotnet tool install --local dotnet-ef
-dotnet ef migrations add InitialCreate
-dotnet ef database update
+dotnet new tool- manifest //creates or updates a dotnet-tools.json file in the project directory. 
+//This file is used to manage .NET Core CLI tools that are used within the project.
+
+dotnet tool install --local dotnet-ef //This command installs the Entity Framework Core .NET CLI tools (dotnet-ef) 
+//locally within the project. These tools are used for database operations such as migrations and updates.
+dotnet ef migrations add InitialCreate //This command creates a new migration named "InitialCreate" in the project.
+// Migrations are used to manage changes to the database schema.
+
+dotnet ef database update //This command applies any pending migrations to the database.* It updates the database 
+//schema to match the current state of the EF Core model as defined by the migrations. In this case, it will apply 
+//the "InitialCreate" migration to the database.
 
 To genrate the controllers, I run these commands in the terminal:
-dotnet tool install --local dotnet-aspnet-codegenerator
-dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design
-dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+dotnet tool install --local dotnet-aspnet-codegenerator //This tool is used to generate code for controllers, 
+//views, and other scaffolding tasks in ASP.NET Core applications.
+
+dotnet add package Microsoft.VisualStudio.Web.CodeGeneration.Design This package contains libraries and tools for 
+//code generation in ASP.NET Core applications.
+
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer //provides support for using SQL Server with Entity 
+//qFramework Core. It includes the necessary libraries and tools to interact with SQL Server databases using EF Core.
 
 dotnet aspnet-codegenerator controller -name ProductsController -async 
 -api -m Product -dc ShopContext -outDir Controllers
@@ -86,17 +118,19 @@ public class ShopContext : IdentityDbContext<IdentityUser>
 In program.cs file, I added another service dependency injection:
 builder.Services.AddIdentity<IdentityUser, IdentityRole>()
     .AddEntityFrameworkStores<ShopContext>().AddDefaultTokenProviders();
+//this code configures ASP.NET Core Identity services to use Entity Framework Core for storing user and role data
+// in the ShopContext database context, and it adds default token providers for generating security tokens.
 
 ***
 I updated the database to have the IdentityUser and IdentityRole
 by using thse commands in the terminal.
 
-dotnet ef migrations add IdentityAdded
-dotnet ef database update
+dotnet ef migrations add IdentityAdded //Creates new migrations callIdentityAdded
+dotnet ef database update //to apply those changes to the actual database.
 
 ***
 Now to get the program to have email service, I used nuget galler extension
-to install this dependancy: Mailkit(by Jeffrey Stedfast)
+to install this dependancy: Mailkit(by Jeffrey Stedfast) //library for working with email in .NET
 
 Now I added the registration with email verification  and sign in functionalities to my app by creating a class called AuthModel
 in the model folder.
@@ -160,7 +194,8 @@ then I added AssignRoleModel and UpdateRoleModel classes to the model folder.
 public class AssignRoleModel {...}
 public class UpdateRoleModel {...}
 
-##################################
+#############################################################################
+
 Implemented logging for tracking application events.
 
 Installed Serilog.AspNetCore using nuget package gallery
@@ -195,7 +230,8 @@ In appsettings.json, I added
     ]
   }
 
-##################################
+#############################################################################
+
 Cloud deployment on Microsoft Azure.
 
 Next, I create a production build for my application, which can then deploy.
@@ -231,3 +267,9 @@ cd site/wwwroot/App_Data
 
 dragged and dropped my SQLite database on it and it uploaded my database.
 ...............................................................................................................
+
+
+
+/*
+method is asynchronous (async), meaning it can perform tasks concurrently without blocking the main thread.
+*/
