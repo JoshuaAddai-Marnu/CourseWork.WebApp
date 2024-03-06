@@ -138,7 +138,7 @@ builder.Services.AddAuthentication(options =>
         {...};
     });
 
-In appsettings.json file, add this:
+In appsettings.json file, I added this:
 "Jwt": {
     "Key": "ThisIsAVeryLongRandomStringUsedAsJWTKey",
     "Issuer": "http://localhost:5186",
@@ -162,6 +162,8 @@ public class UpdateRoleModel {...}
 
 ##################################
 Implemented logging for tracking application events.
+
+Installed Serilog.AspNetCore using nuget package gallery
 
 In program.cs before var app= Builder.Build
 I Implemented this:
