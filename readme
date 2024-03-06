@@ -4,6 +4,7 @@ This is a simple eCommerce app to sell products of any kind.
 localhost: http://localhost:5186/api/
 Github Repository: https://github.com/JoshuaAddai-Marnu/CourseWork.WebApp
 Azure domain: myshopsitewebcw.azurewebsites.net
+Swagger: http://localhost:5186/swagger/index.html
 
 ##################################################################
 Registered 3 users:
